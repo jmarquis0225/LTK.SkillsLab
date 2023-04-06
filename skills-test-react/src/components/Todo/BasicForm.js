@@ -1,7 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import { Formik, Field, Form } from 'formik';
-import { Button } from '@mui/material';
+import { addTodo } from '../../store/TodoStore';
 
 const BasicForm = () => (
   <div>
@@ -12,11 +11,13 @@ const BasicForm = () => (
         lastName: '',
         email: '',
       }}
-      onSubmit={(values) => {}}
+      onSubmit={(values) => {
+        addTodo(values);
+      }}
     >
       <Form>
         <label htmlFor="todo">Add ToDo </label>
-        <Field id="todo" name="Add ToDo" placeholder="TextHere" />
+        <Field id="todo" name="Add_ToDo" placeholder="TextHere" />
         <button type="submit">Submit</button>
       </Form>
     </Formik>
